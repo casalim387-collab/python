@@ -12,12 +12,18 @@ def add_expense():
 
 
 def show_expenses():
-    pass
-
-
+    if not expenses:
+        print("Aucune depense enregistree.")
+        return
+    for number, expense in enumerate(expenses, start=1):
+        print(f"{number}. {expense['description']} - "
+        f"{expense['amount']:.2f}")
+        
+        
+        
 def show_total():
-    pass
-
+    total = sum(item["amount"] for item in expenses)
+    print(f"Total : {total:.2f}")
 
 def main():
     while True:
